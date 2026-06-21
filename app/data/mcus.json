@@ -1,0 +1,96 @@
+{
+  "mcus": {
+    "stm32g474": {
+      "display_name": "STM32G474",
+      "aliases": [
+        "STM32G474RE",
+        "STM32G474RET6",
+        "NUCLEO-G474RE"
+      ],
+      "source_url": "https://www.st.com/resource/en/datasheet/stm32g474cb.pdf",
+      "note": "Common STM32G474 pin functions; verify the exact package and alternate-function mapping before PCB layout.",
+      "power_ground": [
+        "VDD: digital supply, typically 3.3 V",
+        "VSS: digital ground",
+        "VDDA / VSSA: analog supply and analog ground",
+        "VREF+: ADC/DAC reference input or VREFBUF output",
+        "VBAT: backup-domain supply where present"
+      ],
+      "peripherals": {
+        "UART": [
+          "USART1 PA9 TX / PA10 RX",
+          "USART2 PA2 TX / PA3 RX",
+          "USART3 PB10 TX / PB11 RX"
+        ],
+        "SPI": [
+          "SPI1 PA5 SCK / PA6 MISO / PA7 MOSI",
+          "SPI2 PB13 SCK / PB14 MISO / PB15 MOSI"
+        ],
+        "I2C": [
+          "I2C1 PB8 SCL / PB9 SDA",
+          "I2C2 PA9 SCL / PA8 SDA",
+          "I2C3 PC8 SCL / PC9 SDA"
+        ],
+        "ADC": [
+          "Many analog-capable pins: PA0-PA7, PB0-PB1, PC0-PC5",
+          "VREF+ available for reference input/output"
+        ],
+        "CAN": [
+          "FDCAN1 PA11 RX / PA12 TX",
+          "FDCAN1 PB8 RX / PB9 TX"
+        ]
+      },
+      "standout_pins": [
+        "PB8-BOOT0: boot strap pin; also has I2C1_SCL and FDCAN1_RX alternate functions",
+        "PG10-NRST: reset pin on packages that expose it",
+        "PA13 SWDIO / PA14 SWCLK: debug pins after reset",
+        "PB4 / PB6: UCPD CC pins with startup dead-battery pull-down behavior"
+      ]
+    },
+    "esp32c3": {
+      "display_name": "ESP32-C3",
+      "aliases": [
+        "ESP32C3",
+        "ESP32-C3-MINI",
+        "ESP32-C3-WROOM"
+      ],
+      "source_url": "https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf",
+      "note": "ESP32-C3 peripherals are mostly GPIO-matrix routable; defaults below are common fixed IO_MUX or dev-board choices.",
+      "power_ground": [
+        "VDD3P3 / VDD3P3_RTC / VDD3P3_CPU: 3.3 V supplies",
+        "VDDA: analog/RF supply",
+        "VDD_SPI: SPI flash supply domain",
+        "GND: ground",
+        "CHIP_EN / EN: chip enable and reset input"
+      ],
+      "peripherals": {
+        "UART": [
+          "UART0 GPIO21 TX / GPIO20 RX by IO_MUX",
+          "UART1 can be routed through the GPIO matrix"
+        ],
+        "SPI": [
+          "SPI2/FSPI IO_MUX: GPIO6 CLK, GPIO7 MOSI, GPIO2 MISO, GPIO10 CS",
+          "GPIO12-GPIO17 are usually used by SPI flash and are not recommended for general IO"
+        ],
+        "I2C": [
+          "I2C can be routed through the GPIO matrix",
+          "Common dev-board choice: GPIO8 SDA / GPIO9 SCL"
+        ],
+        "ADC": [
+          "ADC1 channels on GPIO0-GPIO4",
+          "ADC2_CH0 on GPIO5"
+        ],
+        "CAN": [
+          "TWAI controller TX/RX can be routed through the GPIO matrix",
+          "External CAN transceiver required"
+        ]
+      },
+      "standout_pins": [
+        "GPIO2, GPIO8, GPIO9: strapping pins; avoid hard pulls that fight boot mode",
+        "GPIO9: commonly connected to BOOT button on dev boards",
+        "GPIO18 / GPIO19: USB Serial/JTAG by default",
+        "CHIP_EN / EN: reset/chip-enable pin"
+      ]
+    }
+  }
+}
