@@ -10,21 +10,21 @@ features:
 
   slash_commands:
     - command: /dp-resistor
-      url: https://trying-pvc-rosa-affiliation.trycloudflare.com/slack/events
+      url: https://devaansh.hackclub.app/slack/events
       description: Calculate a 4-band or 5-band resistor value.
-      usage_hint: "brown black red gold"
+      usage_hint: "<bands>"
       should_escape: false
 
     - command: /dp-datasheet
-      url: https://trying-pvc-rosa-affiliation.trycloudflare.com/slack/events
+      url: https://devaansh.hackclub.app/slack/events
       description: Get quick datasheet search links for a part number.
-      usage_hint: "STM32G474RET6"
+      usage_hint: "<part_number>"
       should_escape: false
 
     - command: /dp-pinout
-      url: https://trying-pvc-rosa-affiliation.trycloudflare.com/slack/events
+      url: https://devaansh.hackclub.app/slack/events
       description: Show a curated MCU pinout and peripheral cheatsheet.
-      usage_hint: "STM32G474"
+      usage_hint: "<mcu>"
       should_escape: false
 
 oauth_config:
