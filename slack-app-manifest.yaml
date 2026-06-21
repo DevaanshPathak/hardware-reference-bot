@@ -2,31 +2,37 @@ display_information:
   name: Hardware Reference Bot
   description: Quick electronics references for Stardance YSWS builders.
   background_color: "#2f4f4f"
+
 features:
   bot_user:
     display_name: Hardware Reference Bot
     always_online: false
+
   slash_commands:
     - command: /dp-resistor
-      url: https://REPLACE_WITH_MY_DOMAIN/slack/events
+      url: https://trying-pvc-rosa-affiliation.trycloudflare.com/slack/events
       description: Calculate a 4-band or 5-band resistor value.
-      usage_hint: brown black red gold
+      usage_hint: "brown black red gold"
       should_escape: false
+
     - command: /dp-datasheet
-      url: https://REPLACE_WITH_MY_DOMAIN/slack/events
+      url: https://trying-pvc-rosa-affiliation.trycloudflare.com/slack/events
       description: Get quick datasheet search links for a part number.
-      usage_hint: STM32G474RET6
+      usage_hint: "STM32G474RET6"
       should_escape: false
+
     - command: /dp-pinout
-      url: https://REPLACE_WITH_MY_DOMAIN/slack/events
+      url: https://trying-pvc-rosa-affiliation.trycloudflare.com/slack/events
       description: Show a curated MCU pinout and peripheral cheatsheet.
-      usage_hint: STM32G474
+      usage_hint: "STM32G474"
       should_escape: false
+
 oauth_config:
   scopes:
     bot:
       - commands
       - chat:write
+
 settings:
   org_deploy_enabled: false
   socket_mode_enabled: false

@@ -12,16 +12,14 @@ logging.basicConfig(level=settings.log_level)
 logger = logging.getLogger(__name__)
 
 if not settings.slack_bot_token or not settings.slack_signing_secret:
-    raise RuntimeError(
-        "SLACK_BOT_TOKEN and SLACK_SIGNING_SECRET are required. "
-        "Copy .env.example to .env and fill in your Slack app credentials."
+    logger.warning(
+        "SLACK_BOT_TOKEN and SLACK_SIGNING_SECRET must be set before Slack can call the app."
     )
 
 bolt_app = SlackApp(
     token=settings.slack_bot_token,
     signing_secret=settings.slack_signing_secret,
     process_before_response=True,
-    token_verification_enabled=False,
 )
 register_commands(bolt_app)
 
