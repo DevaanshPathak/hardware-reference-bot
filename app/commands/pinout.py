@@ -84,6 +84,6 @@ def register(app: App) -> None:
         ack()
         message = build_pinout_message(command.get("text", ""))
         try:
-            respond(response_type="ephemeral", text=message, mrkdwn=True)
+            respond(response_type="ephemeral", text=message)
         except Exception:
             logger.exception("Failed to send /dp-pinout response")
